@@ -27,9 +27,7 @@
         <page-helper.version>2.0.0</page-helper.version>
         <swagger.version>4.5.0</swagger.version>
         <swagger.annotations.version>2.2.19</swagger.annotations.version>
-        <codeshow.version>1.0.0</codeshow.version>
-        <mysql.version>8.0.33</mysql.version>
-        <minio.version>8.5.10</minio.version>
+        <minio.version>8.5.11</minio.version>
         <p6spy.version>1.9.0</p6spy.version>
     </properties>
 
@@ -67,6 +65,7 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+<!--            mybatis 版本需要使用3.0.3-->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
