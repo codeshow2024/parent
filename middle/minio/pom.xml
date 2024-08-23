@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>top.codeshow</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>middle</artifactId>
         <version>1.0.0</version>
     </parent>
 
@@ -18,13 +18,8 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>top.codeshow</groupId>
-            <artifactId>common</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
         </dependency>
     </dependencies>
-
 </project>

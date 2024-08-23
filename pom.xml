@@ -15,8 +15,8 @@
     <modules>
         <module>common</module>
         <module>common-db</module>
-        <module>minio</module>
         <module>test-service</module>
+        <module>middle</module>
     </modules>
     <version>1.0.0</version>
     <name>parent</name>
@@ -111,6 +111,21 @@
             <dependency>
                 <groupId>top.codeshow</groupId>
                 <artifactId>common-db</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.codeshow</groupId>
+                <artifactId>redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.codeshow</groupId>
+                <artifactId>rabbitmq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.codeshow</groupId>
+                <artifactId>minio</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
