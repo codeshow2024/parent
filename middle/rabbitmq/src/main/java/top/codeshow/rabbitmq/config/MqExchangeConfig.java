@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.CustomExchange;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.ExchangeBuilder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,12 +17,19 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 public class MqExchangeConfig {
-    // 统一前缀
-    public static final String CODESHOW_MQ_PRE = "codeshow.mq";
+
+    public static String PREFIX;
+
     // 即时交换机名称
-    public static final String CODESHOW_MQ_EXCHANGE = CODESHOW_MQ_PRE + ".exchange";
+    public static String MQ_EXCHANGE;
     // 延迟交换机名称
-    public static final String CODESHOW_MQ_DELAYED_EXCHANGE = CODESHOW_MQ_PRE + ".delayed.exchange";
+    public static String MQ_DELAYED_EXCHANGE;
+
+    public MqExchangeConfig(@Value("${codeshow.rabbitmq.prefix}") String prefix) {
+        PREFIX = prefix;
+        MQ_EXCHANGE = PREFIX + ".exchange";
+        MQ_DELAYED_EXCHANGE = PREFIX + ".delayed.exchange";
+    }
 
     /**
      * 即时交换机
@@ -29,7 +37,7 @@ public class MqExchangeConfig {
     @Bean
     DirectExchange directExchange() {
         return ExchangeBuilder
-                .directExchange(CODESHOW_MQ_EXCHANGE)
+                .directExchange(MQ_EXCHANGE)
                 .durable(true)
                 .build();
     }
@@ -40,7 +48,7 @@ public class MqExchangeConfig {
     @Bean
     public CustomExchange delayDirectExchange() {
         return new CustomExchange(
-                CODESHOW_MQ_DELAYED_EXCHANGE,
+                MQ_DELAYED_EXCHANGE,
                 "x-delayed-message",
                 true,
                 false,
