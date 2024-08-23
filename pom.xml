@@ -12,6 +12,11 @@
     <groupId>top.codeshow</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>common</module>
+        <module>common-db</module>
+        <module>minio</module>
+    </modules>
     <version>1.0.0</version>
     <name>parent</name>
     <description>父级依赖</description>
@@ -89,11 +94,23 @@
                 <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
-<!--            解析 html-->
+            <!--            解析 html-->
             <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
+            </dependency>
+
+            <!--            codeshow -->
+            <dependency>
+                <groupId>top.codeshow</groupId>
+                <artifactId>common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>top.codeshow</groupId>
+                <artifactId>common-db</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
