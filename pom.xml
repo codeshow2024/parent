@@ -16,6 +16,7 @@
         <module>common</module>
         <module>common-db</module>
         <module>minio</module>
+        <module>test-service</module>
     </modules>
     <version>1.0.0</version>
     <name>parent</name>
