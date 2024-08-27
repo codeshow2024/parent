@@ -4,6 +4,7 @@ package top.codeshow.minio.util;
 import io.minio.*;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import top.codeshow.common.exception.ServiceException;
@@ -14,9 +15,8 @@ import java.io.InputStream;
 @Slf4j
 @Component
 public class FileClient {
-
-
-    private static final String bucket = "codeshow";
+    @Value("${minio.upload.bucket}")
+    private String bucket;
     @Resource
     private MinioClient minioClient;
 
@@ -32,8 +32,8 @@ public class FileClient {
             }
             InputStream inputStream = file.getInputStream();
             String fileName = MyStrUtils.getUuid();
-            String originalName = file.getOriginalFilename().replaceAll(" ", "");
-            if (originalName.contains(".")) {
+            String originalName = MyStrUtils.removeBlank(file.getOriginalFilename());
+            if (originalName != null && originalName.contains(".")) {
                 fileName = fileName.concat(originalName.substring(originalName.lastIndexOf(".")));
             }
             PutObjectArgs putObjectArgs = PutObjectArgs.builder()
