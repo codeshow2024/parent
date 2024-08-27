@@ -13,6 +13,9 @@ import top.codeshow.redis.RedisUtils;
 
 import java.lang.reflect.Method;
 
+/**
+ * redisCache 切面
+ */
 @Slf4j
 @Aspect
 @Component
@@ -31,20 +34,17 @@ public class RedisCacheAspect {
         for (Object param : argValues) {
             key = String.join(":", key, param.toString());
         }
-        log.info("缓存的key值为{}", key);
         Object result = RedisUtils.get(key);
         if (result != null) {
-            return result;
+            log.info("redisCache从redis中获取 key=[{}],value=[{}]", key, result);
         } else {
             result = joinPoint.proceed();
-        }
-        if (result != null) {
             if (method.isAnnotationPresent(RedisCache.class)) {
                 RedisCache redisCache = method.getAnnotation(RedisCache.class);
                 RedisUtils.set(key, result, redisCache.time(), redisCache.timeunit());
+                log.info("redisCache缓存值到redis中,key=[{}],value=[{}],过期时间为[{},{}]", key, result, redisCache.time(), redisCache.timeunit());
             }
         }
         return result;
     }
-
 }
