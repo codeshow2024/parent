@@ -18,18 +18,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MqExchangeConfig {
 
-    public static String PREFIX;
-
+    @Value("${codeshow.rabbitmq.prefix}")
+    public String PREFIX;
     // 即时交换机名称
-    public static String MQ_EXCHANGE;
+    @Value("${codeshow.rabbitmq.exchange}")
+    public String MQ_EXCHANGE;
     // 延迟交换机名称
-    public static String MQ_DELAYED_EXCHANGE;
-
-    public MqExchangeConfig(@Value("${codeshow.rabbitmq.prefix}") String prefix) {
-        PREFIX = prefix;
-        MQ_EXCHANGE = PREFIX + ".exchange";
-        MQ_DELAYED_EXCHANGE = PREFIX + ".delayed.exchange";
-    }
+    @Value("${codeshow.rabbitmq.delayed_exchange}")
+    public String MQ_DELAYED_EXCHANGE;
 
     /**
      * 即时交换机
