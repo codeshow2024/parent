@@ -11,7 +11,7 @@ import java.net.UnknownHostException;
 
 @Slf4j
 public class ApplicationUtils {
-    public static void run(Class<?> cls) {
+    public static ApplicationContext run(Class<?> cls) {
         System.setProperty("spring.amqp.deserialization.trust.all", "true");
         ApplicationContext application = SpringApplication.run(cls);
         Environment env = application.getEnvironment();
@@ -37,5 +37,6 @@ public class ApplicationUtils {
                 port,
                 port,
                 contextPath);
+        return application;
     }
 }
