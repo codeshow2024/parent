@@ -1,4 +1,4 @@
-package top.codeshow.common.db.base;
+package top.codeshow.common.exception;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

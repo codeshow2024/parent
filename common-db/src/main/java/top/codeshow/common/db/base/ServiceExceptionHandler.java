@@ -11,6 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import top.codeshow.common.en.CodeEnum;
+import top.codeshow.common.exception.ServiceException;
 
 import java.util.Set;
 
