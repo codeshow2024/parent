@@ -3,13 +3,15 @@ package top.codeshow.common.db.base;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import top.codeshow.common.db.en.CodeEnum;
+import top.codeshow.common.en.CodeEnum;
 
 import java.time.LocalDateTime;
 
+/**
+ * 返回结果
+ */
 @Data
 @NoArgsConstructor
-@Schema(description = "返回结果")
 public class Result<T> {
     @Schema(description = "当前时间")
     private final LocalDateTime currentTime = LocalDateTime.now();

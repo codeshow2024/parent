@@ -10,7 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import top.codeshow.common.db.en.CodeEnum;
+import top.codeshow.common.en.CodeEnum;
 
 import java.util.Set;
 

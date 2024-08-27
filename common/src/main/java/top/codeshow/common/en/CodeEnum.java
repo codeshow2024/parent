@@ -1,4 +1,4 @@
-package top.codeshow.common.db.en;
+package top.codeshow.common.en;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
