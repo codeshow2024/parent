@@ -17,15 +17,16 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 public class MqExchangeConfig {
-
-    @Value("${codeshow.rabbitmq.prefix}")
-    public String PREFIX;
     // 即时交换机名称
-    @Value("${codeshow.rabbitmq.exchange}")
-    public String MQ_EXCHANGE;
+    public static String MQ_EXCHANGE;
     // 延迟交换机名称
-    @Value("${codeshow.rabbitmq.delayed_exchange}")
-    public String MQ_DELAYED_EXCHANGE;
+    public static String MQ_DELAYED_EXCHANGE;
+
+
+    public MqExchangeConfig(@Value("${codeshow.rabbitmq.exchange}") String mqExchange, @Value("${codeshow.rabbitmq.delayed_exchange}") String delayedExchange) {
+        MQ_EXCHANGE = mqExchange;
+        MQ_DELAYED_EXCHANGE = delayedExchange;
+    }
 
     /**
      * 即时交换机
