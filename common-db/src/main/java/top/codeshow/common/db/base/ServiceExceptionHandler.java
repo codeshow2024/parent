@@ -21,7 +21,6 @@ import java.util.Set;
 @Slf4j
 @RestControllerAdvice
 public class ServiceExceptionHandler {
-
     /**
      * 业务异常
      */
@@ -78,8 +77,11 @@ public class ServiceExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Result<Void> otherException(Exception e) {
         e.printStackTrace();
-        log.error("操作失败", e);
-        return Result.error(CodeEnum.MYSQL_ERROR.getCode(), CodeEnum.MYSQL_ERROR.getMessage());
+        Throwable cause = e.getCause();
+        if (cause instanceof ServiceException) {
+            return Result.error(((ServiceException) cause).getStatus(), cause.getMessage());
+        }
+        return Result.error(CodeEnum.ERROR.getCode(), CodeEnum.ERROR.getMessage());
     }
 }
 
