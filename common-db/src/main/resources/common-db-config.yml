@@ -1,0 +1,7 @@
+decorator:
+  datasource:
+    p6spy:
+      # 日志格式
+      log-format: "\n耗时:%(executionTime) ||  sql:  %(sql)\n"
+      logging: CUSTOM
+      custom-appender-class: com.baomidou.mybatisplus.extension.p6spy.StdoutLogger
