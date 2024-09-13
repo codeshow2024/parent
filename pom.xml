@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>top.codeshow</groupId>
+    <groupId>io.github.codeshow2024</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
     <modules>
@@ -108,27 +108,27 @@
 
             <!--            codeshow -->
             <dependency>
-                <groupId>top.codeshow</groupId>
+                <groupId>io.github.codeshow2024</groupId>
                 <artifactId>common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>top.codeshow</groupId>
+                <groupId>io.github.codeshow2024</groupId>
                 <artifactId>common-db</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>top.codeshow</groupId>
+                <groupId>io.github.codeshow2024</groupId>
                 <artifactId>redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>top.codeshow</groupId>
+                <groupId>io.github.codeshow2024</groupId>
                 <artifactId>rabbitmq</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>top.codeshow</groupId>
+                <groupId>io.github.codeshow2024</groupId>
                 <artifactId>minio</artifactId>
                 <version>${project.version}</version>
             </dependency>
